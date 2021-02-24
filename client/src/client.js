@@ -10,15 +10,20 @@ const onChatSubmitted = (sock) => (e) => {
   e.preventDefault();
   const input = document.querySelector('#chat');
   const text = input.value;
+  if(text != '') sock.emit('message', text);
   input.value = '';
-  sock.emit('message', text);
 };
 
 (() => {
+  log('<b>Welcome!</b>');
+
   const sock = io();
+
   sock.emit('getChat');
   sock.on('message', log);
 
-  log('<b>Welcome!</b>');
+  
+  const game = new Game();
+
   document.querySelector('#chat-form').addEventListener('submit', onChatSubmitted(sock));
 })();
