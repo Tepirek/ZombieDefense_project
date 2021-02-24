@@ -10,7 +10,8 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 io.on('connection', (sock) => {
-    sock.emit('message', 'You are connected!');
+    const date = Date('MM:HH');
+    sock.emit('message', `${date} You are connected! <small>${sock.id}</small>`);
     sock.on('message', (text) => io.emit('message', text));
 });
 
