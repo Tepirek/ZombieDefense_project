@@ -15,9 +15,8 @@ const onChatSubmitted = (sock) => (e) => {
 };
 
 (() => {
-
   const sock = io();
-
+  sock.emit('getChat');
   sock.on('message', log);
 
   log('<b>Welcome!</b>');
