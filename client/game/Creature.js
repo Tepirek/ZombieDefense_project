@@ -1,4 +1,4 @@
-class Creautre {
+class Creature {
     constructor(life, strength, speed) {
         this.life = life;
         this.strength = strength;
