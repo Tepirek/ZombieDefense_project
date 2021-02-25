@@ -24,14 +24,8 @@ const onChatSubmitted = (sock) => (e) => {
   
   const game = new Board();
   const player = new Player(game.getCtx());
-  const creature = new Creature(game.getCtx());
-  this.table = new Array();
-  let level = 1;
-  for(let i = 1;i<10*level;i++)
-  {
-      let y = new Creature(game.getCtx());
-      this.table.push(y);
-  }
+  const wave = new Wave(2,game.getCtx());
+
   player.draw();
   player.getGun().draw();
 
@@ -45,9 +39,9 @@ const onChatSubmitted = (sock) => (e) => {
   }
 
   setInterval(() => {
-    creature.move(-1, -1);
     player.getGun().drawBullets();
   }, 1000/24);
+
 
   game.getCanvas().addEventListener('click', (event) => {
     const { x , y } = getMouseCoordinates(game.getCanvas(), event);
