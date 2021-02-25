@@ -27,6 +27,8 @@ const onChatSubmitted = (sock) => (e) => {
   const creature = new Creature(game.getCtx());
   player.draw();
   player.getGun().draw();
+  const board = new Board();
+  board.draw();
 
   const getMouseCoordinates = (element, event) => {
     const { top, left } = element.getBoundingClientRect();
@@ -57,6 +59,9 @@ const onChatSubmitted = (sock) => (e) => {
       player.gun.reload();
     }
     player.move(e.keyCode);
+  board.getCanvas().addEventListener('click', (event) => {
+    const { x , y } = getClickedCoordinates(board.getCanvas(), event);
+    console.log({x, y});
   });
 
   document.querySelector('#chat-form').addEventListener('submit', onChatSubmitted(sock));
