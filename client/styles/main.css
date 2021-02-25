@@ -54,13 +54,17 @@ li {
 canvas {
   display: block;
   margin: 5px auto;
-  border: 5px solid black;
+  
 }
 
 .controls-wrapper {
   background-color: rgb(255, 255, 255);
   width: 400px;
   margin: 20px auto;
+<<<<<<< HEAD
+=======
+  border: 5px solid rgb(219, 136, 11));
+>>>>>>> Tomek
   border: 5px solid rgb(219, 136, 11);
 }
 
@@ -85,4 +89,12 @@ canvas {
 
 #events {
   height: 550px;
+}
+
+.background {
+  background-image: url('../img/lava3.jpg');
+  height: 640px;
+  width: 710px;
+  margin: 5px auto;
+  border: 5px solid black;
 }

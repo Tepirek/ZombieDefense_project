@@ -28,6 +28,12 @@ const onChatSubmitted = (sock) => (e) => {
   player.draw();
   player.getGun().draw();
   board.draw();
+  const game = new Board();
+  const player = new Player(game.getCtx());
+  const wave = new Wave(2,game.getCtx());
+
+  player.draw();
+  player.getGun().draw();
 
   const getMouseCoordinates = (element, event) => {
     const { top, left } = element.getBoundingClientRect();
@@ -39,12 +45,14 @@ const onChatSubmitted = (sock) => (e) => {
   }
 
   setInterval(() => {
-    creature.move(-1, -1);
     player.getGun().drawBullets();
   }, 1000/24);
 
   board.getCanvas().addEventListener('click', (event) => {
     const { x , y } = getMouseCoordinates(board.getCanvas(), event);
+
+  game.getCanvas().addEventListener('click', (event) => {
+    const { x , y } = getMouseCoordinates(game.getCanvas(), event);
     if(player.getGun().canShoot()) player.getGun().shoot(x, y);
   });
 
@@ -58,11 +66,16 @@ const onChatSubmitted = (sock) => (e) => {
       player.gun.reload();
     }
     player.move(e.keyCode);
+  });
 
     board.getCanvas().addEventListener('click', (event) => {
       const { x , y } = getClickedCoordinates(board.getCanvas(), event);
       console.log({x, y});
     });
+  });
+  game.getCanvas().addEventListener('click', (event) => {
+    const { x , y } = getMouseCoordinates(game.getCanvas(), event);
+    console.log({x, y});
   });
 
   document.querySelector('#chat-form').addEventListener('submit', onChatSubmitted(sock));
