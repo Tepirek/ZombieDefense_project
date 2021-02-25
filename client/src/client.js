@@ -23,17 +23,13 @@ const onChatSubmitted = (sock) => (e) => {
   sock.on('message', log);
   
   const board = new Board();
-  const player = new Player(board.getCtx());
-  const creature = new Creature(board.getCtx());
+  const player = new Player();
   player.draw();
-  player.getGun().draw();
+  player.move();
+  const creature = new Creature(board.getCtx());
   board.draw();
   const game = new Board();
-  const player = new Player(game.getCtx());
-  const wave = new Wave(2,game.getCtx());
-
-  player.draw();
-  player.getGun().draw();
+  const wave = new Wave(1,game.getCtx(), player);
 
   const getMouseCoordinates = (element, event) => {
     const { top, left } = element.getBoundingClientRect();
@@ -45,7 +41,7 @@ const onChatSubmitted = (sock) => (e) => {
   }
 
   setInterval(() => {
-    player.getGun().drawBullets();
+
   }, 1000/24);
 
   board.getCanvas().addEventListener('click', (event) => {
@@ -63,7 +59,7 @@ const onChatSubmitted = (sock) => (e) => {
   document.addEventListener('keydown', (e) => {
     console.log(e.keyCode);
     if(e.keyCode == 82) {
-      player.gun.reload();
+      
     }
     player.move(e.keyCode);
   });
@@ -79,4 +75,59 @@ const onChatSubmitted = (sock) => (e) => {
   });
 
   document.querySelector('#chat-form').addEventListener('submit', onChatSubmitted(sock));
+
+  const gameObject = new GameObject(0, 0, 1, '../img/zombie01.png');
+  // gameObject.getInfo();
+  console.log(gameObject);
+
+  const gameObject2 = new GameObject(0, 300, -1, '../img/zombie01.png');
+
+  setInterval(() => {
+    
+  }, 1000/30);
+
+
+  class A {
+    constructor(x) {
+      this.x = x;
+    }
+  }
+
+  A.prototype.pies = function() {
+    console.log(this.x);
+  }
+
+  class B extends A {
+    constructor(x) {
+      super(x);
+    }
+    kot = function() {
+      this.pies();
+    }
+  }
+
+  const a = new A(1);
+  const b = new A(2);
+  const c = new A(3);
+  const d = new B(4);
+  console.log(a);
+  console.log(b);
+  console.log(c);
+  console.log(d);
+
+  a.pies();
+  b.pies();
+  c.pies();
+  d.kot();
+
+
+
+
+
+
+
+
+
+
+
 })();

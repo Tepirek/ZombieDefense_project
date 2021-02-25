@@ -6,6 +6,7 @@ body {
   background-color: #363636;
   box-sizing: border-box;
   display: flex;
+  overflow: hidden;
 }
 
 input {
@@ -61,10 +62,7 @@ canvas {
   background-color: rgb(255, 255, 255);
   width: 400px;
   margin: 20px auto;
-<<<<<<< HEAD
-=======
-  border: 5px solid rgb(219, 136, 11));
->>>>>>> Tomek
+  border: 5px solid rgb(219, 136, 11);
   border: 5px solid rgb(219, 136, 11);
 }
 

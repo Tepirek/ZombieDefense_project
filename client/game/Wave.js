@@ -1,5 +1,6 @@
 class Wave {
-    constructor(level, ctx){
+    constructor(level, ctx, player){
+        this.player = player;
         this.ctx = ctx;
         this.level = level;
         this.table = new Array();
@@ -12,12 +13,9 @@ class Wave {
                 element.draw();
             });
           }, 1000/24);
-    }
-
-
-getLevel = () => this.level;
-getTable = () => this.table;
-
+    };
+    getLevel = () => this.level;
+    getTable = () => this.table;
 };
 
 
