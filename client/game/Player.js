@@ -1,22 +1,26 @@
 class Player extends GameObject {
-    constructor() {
-        super(200, 500, 4, '../img/zombie01.png');
+    constructor(gun) {
+        super(200, 400, 20, '../img/tank01.png');
+        this.dimension = { width: 96, height: 96 };
+        this.gun = gun;
     };
 
-    move = (keyCode) => {
+    movePlayer = (keyCode) => {
         // W - 87, A - 65, S - 83, D - 68, SPACEBAR - 32
         if(keyCode == 87) {
-            this.getInfo();
+            this.move(0, -1);
         }
         if(keyCode == 65) {
-            this.position.x -= this.speed;
+            this.move(-1, 0);
         }
         if(keyCode == 83) {
+            this.move(0, 1);
         }
         if(keyCode == 68) {
-            this.position.x += this.speed;
+            this.move(1, 0);
         }
         if(keyCode == 32) {
+            
         }
     };
 };

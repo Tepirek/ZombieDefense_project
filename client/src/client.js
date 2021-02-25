@@ -25,7 +25,6 @@ const onChatSubmitted = (sock) => (e) => {
   const board = new Board();
   const player = new Player();
   player.draw();
-  player.move();
   const creature = new Creature(board.getCtx());
   board.draw();
   const game = new Board();
@@ -61,7 +60,7 @@ const onChatSubmitted = (sock) => (e) => {
     if(e.keyCode == 82) {
       
     }
-    player.move(e.keyCode);
+    player.movePlayer(e.keyCode);
   });
 
     board.getCanvas().addEventListener('click', (event) => {
@@ -77,56 +76,13 @@ const onChatSubmitted = (sock) => (e) => {
   document.querySelector('#chat-form').addEventListener('submit', onChatSubmitted(sock));
 
   const gameObject = new GameObject(0, 0, 1, '../img/zombie01.png');
-  // gameObject.getInfo();
-  console.log(gameObject);
-
+  gameObject.run();
   const gameObject2 = new GameObject(0, 300, -1, '../img/zombie01.png');
+  gameObject2.run();
 
   setInterval(() => {
     
   }, 1000/30);
-
-
-  class A {
-    constructor(x) {
-      this.x = x;
-    }
-  }
-
-  A.prototype.pies = function() {
-    console.log(this.x);
-  }
-
-  class B extends A {
-    constructor(x) {
-      super(x);
-    }
-    kot = function() {
-      this.pies();
-    }
-  }
-
-  const a = new A(1);
-  const b = new A(2);
-  const c = new A(3);
-  const d = new B(4);
-  console.log(a);
-  console.log(b);
-  console.log(c);
-  console.log(d);
-
-  a.pies();
-  b.pies();
-  c.pies();
-  d.kot();
-
-
-
-
-
-
-
-
 
 
 

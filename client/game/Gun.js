@@ -1,4 +1,4 @@
-class Gun {
+class Gun extends GameObject {
     constructor(player, ctx) {
         this.damage = 5;
         this.fireRate = 5;
