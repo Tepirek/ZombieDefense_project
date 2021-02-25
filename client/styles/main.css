@@ -54,7 +54,7 @@ li {
 canvas {
   display: block;
   margin: 5px auto;
-  border: 5px solid black;
+  
 }
 
 .controls-wrapper {
@@ -85,4 +85,12 @@ canvas {
 
 #events {
   height: 550px;
+}
+
+.background {
+  background-image: url('../img/lava3.jpg');
+  height: 640px;
+  width: 710px;
+  margin: 5px auto;
+  border: 5px solid black;
 }
