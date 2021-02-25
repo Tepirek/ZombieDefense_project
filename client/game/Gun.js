@@ -16,6 +16,6 @@ class Gun {
         }, this.reloadTime);
     };
     shoot = (x, y) => {
-        let bullet = new Bullet();
+        let bullet = new Bullet(x, y);
     };
 };

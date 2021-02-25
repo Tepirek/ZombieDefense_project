@@ -2,4 +2,7 @@ class Player {
     constructor() {
 
     };
+    move = () => {
+
+    };
 };
