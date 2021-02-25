@@ -75,11 +75,6 @@ const onChatSubmitted = (sock) => (e) => {
 
   document.querySelector('#chat-form').addEventListener('submit', onChatSubmitted(sock));
 
-  const gameObject = new GameObject(0, 0, 1, '../img/zombie01.png');
-  gameObject.run();
-  const gameObject2 = new GameObject(0, 300, -1, '../img/zombie01.png');
-  gameObject2.run();
-
   setInterval(() => {
     
   }, 1000/30);
