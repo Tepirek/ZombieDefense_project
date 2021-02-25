@@ -15,7 +15,6 @@ class Board {
     getWidth = () => this.width;
     getWidth = () => this.width;
     getImage = () => this.image;
-    draw = () => {
-        
+    draw = function () {
     }
 }

@@ -61,7 +61,7 @@ canvas {
   background-color: rgb(255, 255, 255);
   width: 400px;
   margin: 20px auto;
-  border: 5px solid rgb(219, 136, 11))
+  border: 5px solid rgb(219, 136, 11);
 }
 
 .chat-wrapper {
