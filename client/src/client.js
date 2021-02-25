@@ -22,12 +22,11 @@ const onChatSubmitted = (sock) => (e) => {
   sock.emit('getChat');
   sock.on('message', log);
   
-  const game = new Game();
-  const player = new Player(game.getCtx());
-  const creature = new Creature(game.getCtx());
+  const board = new Board();
+  const player = new Player(board.getCtx());
+  const creature = new Creature(board.getCtx());
   player.draw();
   player.getGun().draw();
-  const board = new Board();
   board.draw();
 
   const getMouseCoordinates = (element, event) => {
@@ -44,13 +43,13 @@ const onChatSubmitted = (sock) => (e) => {
     player.getGun().drawBullets();
   }, 1000/24);
 
-  game.getCanvas().addEventListener('click', (event) => {
-    const { x , y } = getMouseCoordinates(game.getCanvas(), event);
+  board.getCanvas().addEventListener('click', (event) => {
+    const { x , y } = getMouseCoordinates(board.getCanvas(), event);
     if(player.getGun().canShoot()) player.getGun().shoot(x, y);
   });
 
-  game.getCanvas().addEventListener('mousemove', (event) => {
-    const { x , y } = getMouseCoordinates(game.getCanvas(), event);
+  board.getCanvas().addEventListener('mousemove', (event) => {
+    const { x , y } = getMouseCoordinates(board.getCanvas(), event);
   });
 
   document.addEventListener('keydown', (e) => {
@@ -59,9 +58,11 @@ const onChatSubmitted = (sock) => (e) => {
       player.gun.reload();
     }
     player.move(e.keyCode);
-  board.getCanvas().addEventListener('click', (event) => {
-    const { x , y } = getClickedCoordinates(board.getCanvas(), event);
-    console.log({x, y});
+
+    board.getCanvas().addEventListener('click', (event) => {
+      const { x , y } = getClickedCoordinates(board.getCanvas(), event);
+      console.log({x, y});
+    });
   });
 
   document.querySelector('#chat-form').addEventListener('submit', onChatSubmitted(sock));
