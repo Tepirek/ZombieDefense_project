@@ -1,24 +1,16 @@
-class Bullet {
-    constructor(x, y, mx, my, ctx) {
-        this.position = {
-            x: x,
-            y: y
-        };
-        this.mx = mx;
-        this.my = my;
-        this.ctx = ctx;
+class Bullet extends GameObject {
+    constructor(x, y) {
+        super(x, y, 5, '../img/tank01.png');
+        this.dimension = { width: 5, height: 5 };
+        this.damage = 5;
     };
-    move = () => {
-        this.ctx.clearRect(this.position.x, this.position.y, 5, 5);
-        this.position.x += Math.floor(this.mx);
-        this.position.y += Math.floor(this.my);
-        this.ctx.fillRect(this.position.x, this.position.y, 5, 5);
-    };
-    collision = (other) => {
-        if(!(
-            other.position.x + 20 < this.position.x ||
-            other.position.x > this.position.x ||
-            other.position.y + 20 < this.position.y ||
-            other.position.y > this.position.y)) document.write("Hit");
+    run = function() {
+        this.draw();
+        setInterval(() => {
+            this.move(0, -1);
+            if(this.position.y <= 100) {
+                this.gameObject.parent.removeChild(this.GameObject);
+            }
+        }, 1000/24);
     }
 };
