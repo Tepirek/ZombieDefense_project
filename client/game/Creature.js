@@ -6,7 +6,7 @@ class Creature {
         };
         this.life = 50;
         this.strength = 5;
-        this.speed = 1;
+        this.speed = Math.floor((Math.random() * 4) + 1);
         this.ctx = ctx;
     }
     clear = () => {
@@ -18,7 +18,11 @@ class Creature {
     move = (x, y) => {
         this.clear();
        // this.position.x += x * this.speed; może byc jesli beda sie odbijaly od scian 
-        this.position.y -= y * this.speed;
+        this.position.y += y * this.speed;
         this.draw();
     };
+
+    getLife = () => this.life;
+    getSpeed = () => this.speed;
+    getStrength = () => this.strength;
 };
