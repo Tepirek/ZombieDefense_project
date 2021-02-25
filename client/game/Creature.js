@@ -13,7 +13,7 @@ class Creature {
         this.ctx.clearRect(this.position.x, this.position.y, 10, 10);
     }
     draw = () => {
-        this.ctx.fillRect(this.position.x, this.position.y, 10, 10);
+    //    this.ctx.fillRect(this.position.x, this.position.y, 10, 10);
     };
     move = (x, y) => {
         this.clear();

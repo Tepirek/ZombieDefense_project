@@ -22,9 +22,8 @@ const onChatSubmitted = (sock) => (e) => {
   sock.emit('getChat');
   sock.on('message', log);
   
-  const game = new Game();
-  const creature = new Creature(game.getCtx());
-  creature.draw();
+  const board = new Board();
+  board.draw();
 
   const getClickedCoordinates = (element, event) => {
     const { top, left } = element.getBoundingClientRect();
@@ -35,12 +34,8 @@ const onChatSubmitted = (sock) => (e) => {
     }
   }
 
-  setInterval(() => {
-    creature.move(-1, -1);
-  }, 1000/24);
-
-  game.getCanvas().addEventListener('click', (event) => {
-    const { x , y } = getClickedCoordinates(game.getCanvas(), event);
+  board.getCanvas().addEventListener('click', (event) => {
+    const { x , y } = getClickedCoordinates(board.getCanvas(), event);
     console.log({x, y});
   });
 
