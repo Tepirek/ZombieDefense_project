@@ -35,14 +35,13 @@ const getMouseCoordinates = (element, event) => {
   board.draw();
   
   const player = new Player();
-  player.draw();
   
   const game = new Board();
   const wave = new Wave(1,game.getCtx(), player);
 
   document.addEventListener('keydown', (e) => {
     if(e.keyCode == 82) {
-      
+      player.gun.reload();
     }
     player.movePlayer(e.keyCode);
   });

@@ -3,6 +3,7 @@ class Player extends GameObject {
         super(200, 400, 20, '../img/tank01.png');
         this.dimension = { width: 96, height: 96 };
         this.gun = new Gun(this.position.x + 40, this.position.y - 40, this.speed);
+        this.draw();
         this.gun.draw();
     };
 
@@ -25,7 +26,7 @@ class Player extends GameObject {
             this.gun.move(1, 0);
         }
         if(keyCode == 32) {
-            this.gun.shoot();
+            if(this.gun.canShoot()) this.gun.shoot();
         }
     };
 };
