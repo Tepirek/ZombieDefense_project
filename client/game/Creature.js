@@ -8,20 +8,6 @@ class Creature extends GameObject{
         this.speed = Math.floor((Math.random() * 4) + 1);
         this.ctx = ctx;
     }
-    
-    clear = () => {
-        this.ctx.clearRect(this.position.x, this.position.y, 10, 10);
-    }
-    draw = () => {
-        this.ctx.fillRect(this.position.x, this.position.y, 10, 10);
-    };
-    move = (x, y) => {
-        this.clear();
-       // this.position.x += x * this.speed; może byc jesli beda sie odbijaly od scian 
-        this.position.y += y * this.speed;
-        this.draw();
-    };
-
 
     run = function() {
         this.draw();
@@ -36,6 +22,10 @@ class Creature extends GameObject{
             }
         }, 1000/24);
     }
+
+
+
+ 
     getX = () => this.x;
     getY = () => this.y;
     getLife = () => this.life;

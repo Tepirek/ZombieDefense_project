@@ -14,6 +14,15 @@ const onChatSubmitted = (sock) => (e) => {
   input.value = '';
 };
 
+const getMouseCoordinates = (element, event) => {
+  const { top, left } = element.getBoundingClientRect();
+  const { clientX, clientY } = event;
+  return {
+    x: clientX - left,
+    y: clientY - top
+  }
+}
+
 (() => {
   log('<b>Welcome!</b>');
 
@@ -21,64 +30,30 @@ const onChatSubmitted = (sock) => (e) => {
 
   sock.emit('getChat');
   sock.on('message', log);
-  
-  const board = new Board();
+   
   const player = new Player();
-  player.draw();
-  const creature = new Creature(board.getCtx());
-  board.draw();
+  
   const game = new Board();
   const wave = new Wave(1,game.getCtx(), player);
 
-  const getMouseCoordinates = (element, event) => {
-    const { top, left } = element.getBoundingClientRect();
-    const { clientX, clientY } = event;
-    return {
-      x: clientX - left,
-      y: clientY - top
-    }
-  }
 
-  setInterval(() => {
-
-  }, 1000/24);
-
-  board.getCanvas().addEventListener('click', (event) => {
-    const { x , y } = getMouseCoordinates(board.getCanvas(), event);
-
-  game.getCanvas().addEventListener('click', (event) => {
-    const { x , y } = getMouseCoordinates(game.getCanvas(), event);
-    if(player.getGun().canShoot()) player.getGun().shoot(x, y);
-  });
-
-  board.getCanvas().addEventListener('mousemove', (event) => {
-    const { x , y } = getMouseCoordinates(board.getCanvas(), event);
-  });
+  var onMouseClick = function (ev) { 
+    var posX = ev.clientX,
+        posY = ev.clientY;
+    var baricade = new Barricade(game.getCtx(),posX,posY,50);
+    baricade.draw();
+    console.log(posX,posY);
+  };
+  document.addEventListener("mousedown",onMouseClick);
 
   document.addEventListener('keydown', (e) => {
-    console.log(e.keyCode);
     if(e.keyCode == 82) {
-      
+      player.gun.reload();
     }
     player.movePlayer(e.keyCode);
   });
 
-    board.getCanvas().addEventListener('click', (event) => {
-      const { x , y } = getClickedCoordinates(board.getCanvas(), event);
-      console.log({x, y});
-    });
-  });
-  game.getCanvas().addEventListener('click', (event) => {
-    const { x , y } = getMouseCoordinates(game.getCanvas(), event);
-    console.log({x, y});
-  });
-
   document.querySelector('#chat-form').addEventListener('submit', onChatSubmitted(sock));
-
-  setInterval(() => {
-    
-  }, 1000/30);
-
 
 
 })();
