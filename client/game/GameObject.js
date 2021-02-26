@@ -7,10 +7,18 @@ class GameObject {
         this.image = image;
     }
     run = function() {
+<<<<<<< HEAD
         this.draw();
         setInterval(() => {
             this.move(0, 1);
         }, 1000/24);
+=======
+       
+        setInterval(() => {
+            this.move(0, 1);
+        }, 1000/24);
+        this.draw();
+>>>>>>> 6ccfa2906be4127ff660881401f0b6950060ff3f
     }
 };
 
@@ -29,6 +37,11 @@ GameObject.prototype.getSpeed = function() {
 GameObject.prototype.draw = function() {
     this.gameObject.style = `width:${this.dimension.width}px;height:${this.dimension.height}px;position:absolute;top:${this.position.y};left:${this.position.x};z-index:1000;background-size:cover;`;
     this.gameObject.style.backgroundImage = `url('${this.image}')`;
+<<<<<<< HEAD
+=======
+    this.gameObject.style.top = `${this.position.y}px`;
+    this.gameObject.style.left = `${this.position.x}px`;
+>>>>>>> 6ccfa2906be4127ff660881401f0b6950060ff3f
     document.body.appendChild(this.gameObject);
 };
 

@@ -34,10 +34,21 @@ const getMouseCoordinates = (element, event) => {
   const board = new Board();
   board.draw();
   
+   
   const player = new Player();
   
   const game = new Board();
   const wave = new Wave(1,game.getCtx(), player);
+
+
+  var onMouseClick = function (ev) { 
+    var posX = ev.clientX,
+        posY = ev.clientY;
+    var baricade = new Barricade(game.getCtx(),posX,posY,50);
+    baricade.draw();
+    console.log(posX,posY);
+  };
+  document.addEventListener("mousedown",onMouseClick);
 
   document.addEventListener('keydown', (e) => {
     if(e.keyCode == 82) {
@@ -52,4 +63,5 @@ const getMouseCoordinates = (element, event) => {
   gameObject.run();
   const gameObject2 = new GameObject(0, 300, -1, '../img/zombie01.png');
   gameObject2.run();
+
 })();
