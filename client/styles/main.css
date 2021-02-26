@@ -1,7 +1,12 @@
 body {
   font-family: "Helvetica Neue", sans-serif;
+  font-size: 0.8rem;
   margin: 0;
   padding: 0;
+  background-color: #363636;
+  box-sizing: border-box;
+  display: flex;
+  overflow: hidden;
 }
 
 input {
@@ -15,8 +20,8 @@ button {
   font-size: 0.8rem;
   padding: 3px 15px;
   color: white;
-  line-height: 25px;
-  background-color: #00bcd4;
+  line-height: 20px;
+  background-color: #ff9216;
   border: none;
   border-radius: 2px;
   cursor: pointer;
@@ -37,24 +42,28 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  border-bottom: 1px solid lightgrey;
+  border-bottom: 1px solid rgb(211, 13, 13);
   overflow-y: scroll;
 }
 
 li {
-  padding: 10px 10px 10px 10px;
+  padding: 5px;
+  margin: 0px 5px;
+  border-bottom: 1px solid #bababa;
 }
 
 canvas {
   display: block;
-  margin: 10px auto;
+  margin: 5px auto;
+  
 }
 
 .controls-wrapper {
   background-color: rgb(255, 255, 255);
   width: 400px;
   margin: 20px auto;
-  border: 1px solid lightgrey;
+  border: 5px solid rgb(219, 136, 11);
+  border: 5px solid rgb(219, 136, 11);
 }
 
 .chat-wrapper {
@@ -77,5 +86,13 @@ canvas {
 }
 
 #events {
-  height: 150px;
+  height: 550px;
+}
+
+.background {
+  background-image: url('../img/lava3.jpg');
+  height: 640px;
+  width: 710px;
+  margin: 5px auto;
+  border: 5px solid black;
 }
