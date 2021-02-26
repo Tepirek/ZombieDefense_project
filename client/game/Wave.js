@@ -5,6 +5,7 @@ class Wave {
         this.level = level;
         this.table = new Array();
 <<<<<<< HEAD
+<<<<<<< HEAD
         for(let i = 0;i < 10 * level; i++){
             this.table.push(new Creature(this.ctx));
         }
@@ -15,10 +16,15 @@ class Wave {
             });
           }, 1000/24);
 =======
+=======
+>>>>>>> 6ccfa2906be4127ff660881401f0b6950060ff3f
         for(let i = 0;i < 1 * level; i++){
             this.table.push(new Creature(this.ctx, Math.floor((Math.random() * 650) + 140),Math.floor((Math.random() * 500) - 500)));
             this.table[i].run();
         }
+<<<<<<< HEAD
+>>>>>>> 6ccfa2906be4127ff660881401f0b6950060ff3f
+=======
 >>>>>>> 6ccfa2906be4127ff660881401f0b6950060ff3f
     };
     getLevel = () => this.level;

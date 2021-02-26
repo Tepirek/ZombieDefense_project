@@ -3,6 +3,10 @@ class Board {
         this.width = width;
         this.height = height;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        this.totalScore = 0;
+>>>>>>> 6ccfa2906be4127ff660881401f0b6950060ff3f
 =======
         this.totalScore = 0;
 >>>>>>> 6ccfa2906be4127ff660881401f0b6950060ff3f
@@ -15,9 +19,14 @@ class Board {
     getWidth = () => this.width;
     getWidth = () => this.width;
 <<<<<<< HEAD
+<<<<<<< HEAD
     draw = function () {
     };
     
+=======
+    getTotalScore = () => this.totalScore;
+    addTotalScore = (s) => this.totalScore += s;
+>>>>>>> 6ccfa2906be4127ff660881401f0b6950060ff3f
 =======
     getTotalScore = () => this.totalScore;
     addTotalScore = (s) => this.totalScore += s;
