@@ -1,0 +1,98 @@
+body {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 0.8rem;
+  margin: 0;
+  padding: 0;
+  background-color: #363636;
+  box-sizing: border-box;
+  display: flex;
+  overflow: hidden;
+}
+
+input {
+  outline: none;
+  font-size: 1.0rem;
+  padding: 0 5px;
+}
+
+button {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  padding: 3px 15px;
+  color: white;
+  line-height: 20px;
+  background-color: #ff9216;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 6px, rgba(0, 0, 0, 0.12) 0 1px 4px;
+  transition: all 150ms ease-in;
+  outline: none;
+}
+
+button:hover {
+  background-color: #79d7e4;
+}
+
+button.turn:hover {
+  background-color: #eaeaea;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid rgb(211, 13, 13);
+  overflow-y: scroll;
+}
+
+li {
+  padding: 5px;
+  margin: 0px 5px;
+  border-bottom: 1px solid #bababa;
+}
+
+canvas {
+  display: block;
+  margin: 5px auto;
+  
+}
+
+.controls-wrapper {
+  background-color: rgb(255, 255, 255);
+  width: 400px;
+  margin: 20px auto;
+  border: 5px solid rgb(219, 136, 11);
+  border: 5px solid rgb(219, 136, 11);
+}
+
+.chat-wrapper {
+  padding: 10px;
+}
+
+.chat-wrapper form {
+  display: flex;
+}
+
+.chat-wrapper form input {
+  font-size: 1.0rem;
+  margin: 0 10px 0 0;
+  padding: 0 5px;
+  flex-grow: 1;
+}
+
+.chat-wrapper form button {
+  width: 80px;
+}
+
+#events {
+  height: 550px;
+}
+
+.background {
+  background-image: url('../img/lava3.jpg');
+  height: 640px;
+  width: 710px;
+  margin: 5px auto;
+  border: 5px solid black;
+}
